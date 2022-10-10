@@ -10,6 +10,7 @@ entries:
     type: application
     urls:
     - https://magikon.github.io/zeroconnectapi/charts/stable/zeroconnectapi-1.9.1.tgz
+    version: 1.9.1
   - apiVersion: v2
     appVersion: 1.9.0.40
     created: "2022-10-10T12:26:14.3008532+04:00"
@@ -20,4 +21,4 @@ entries:
     urls:
     - https://magikon.github.io/zeroconnectapi/charts/stable/zeroconnectapi-1.9.0.tgz
     version: 1.9.0
-generated: "2022-10-10T12:26:14.2941929+04:00"
+generated: "2022-10-10T16:59:35.2001395+04:00"
