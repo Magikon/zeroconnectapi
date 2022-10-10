@@ -1,0 +1,79 @@
+# Default values for zeroconnectapi.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+chartName: zeroconnectapi
+replicaCount: 1
+
+image:
+  repository: 369588887360.dkr.ecr.us-east-1.amazonaws.com/zeroconnect
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1.9.0.40"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+serviceAccountName: "secretsmanager-policy-sa"
+
+podAnnotations: {}
+
+secretsName: "config.json"
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: NodePort
+  port: 80
+
+ingress:
+  enabled: true
+  CertificateARN: 'arn:aws:acm:us-west-2:139013895924:certificate/2e6f2d7e-db67-4cef-9c52-9eea51a0ae86'
+  ingressClassName: "alb"
+  annotations: 
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-FS-1-2-Res-2020-10
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/actions.ssl-redirect: '443'
+    alb.ingress.kubernetes.io/healthcheck-path: "/v1/docs"
+    alb.ingress.kubernetes.io/success-codes: '301'
+    alb.ingress.kubernetes.io/group.name: zerogroup
+    alb.ingress.kubernetes.io/load-balancer-name: zero-connect
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: zeroconnectapi
+                port:
+                  number: 80
+
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
