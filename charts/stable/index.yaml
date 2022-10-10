@@ -3,21 +3,22 @@ entries:
   zeroconnectapi:
   - apiVersion: v2
     appVersion: 1.9.0.41
-    created: "2022-10-10T16:59:35.2049538+04:00"
+    created: "2022-10-10T18:04:00.7998449+04:00"
     description: A ZeroConnect API Helm chart for Kubernetes
-    digest: 6afcae8c60c09a69a9e81a102751cd0483a36585801ca877c2da58ad1d2b1090
+    digest: db2c2ca7b7f5ffe248f52265cef9054a020ce0f90c368efebe9a15f63f8671a1
     name: zeroconnectapi
     type: application
     urls:
     - https://magikon.github.io/zeroconnectapi/charts/stable/zeroconnectapi-1.9.1.tgz
+    version: 1.9.1
   - apiVersion: v2
     appVersion: 1.9.0.40
-    created: "2022-10-10T12:26:14.3008532+04:00"
+    created: "2022-10-10T18:03:14.4947676+04:00"
     description: A ZeroConnect API Helm chart for Kubernetes
-    digest: adafa0aaf31013dc6224ac1d6d4b7a583c28899340924d00fc5135983828a379
+    digest: beb0e32cf33d10b4be0bfa3b09c412711953ad290e8364208b86a8925443979c
     name: zeroconnectapi
     type: application
     urls:
-    - https://magikon.github.io/zeroconnectapi/charts/stable/zeroconnectapi-1.9.0.tgz
+    - https://magikon.github.io/zeroconnectapi/charts/1.9.0/zeroconnectapi-1.9.0.tgz
     version: 1.9.0
-generated: "2022-10-10T12:26:14.2941929+04:00"
+generated: "2022-10-10T18:04:00.7966178+04:00"
